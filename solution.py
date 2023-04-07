@@ -12,10 +12,10 @@ def solution(p: float, x: np.array) -> tuple:
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
     alpha = 1 - p
-    loc = np.mean(x)
+    #loc = np.mean(x)
     #scale = np.sqrt(np.var(x)) / np.sqrt(len(x))
-    left = chi2.ppf(1 - alpha/2, df=len(x))
-    right = chi2.ppf(alpha/2, df=len(x))
+    left = chi2.ppf(1 - alpha/2, 2*len(x))
+    right = chi2.ppf(alpha/2, 2*len(x))
     y = 0
     for i in range(len(x)):
         y = y + x[i]**2
