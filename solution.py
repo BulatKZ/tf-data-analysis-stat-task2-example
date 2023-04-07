@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import math as mt
 
 from scipy.stats import norm
 from scipy.stats import chi2
@@ -17,7 +18,7 @@ def solution(p: float, x: np.array) -> tuple:
     right = chi2.ppf(alpha/2, df=len(x))
     y = 0
     for i in range(len(x)):
-        y = y + (x[i] - loc)**2
+        y = y + x[i]**2
     #return loc - scale * norm.ppf(1 - alpha / 2), \
     #       loc - scale * norm.ppf(alpha / 2)
-    return y / (27*left), y / (27*right)
+    return mt.sqrt(y / (27*left)), mt.sqrt(y / (27*right))
